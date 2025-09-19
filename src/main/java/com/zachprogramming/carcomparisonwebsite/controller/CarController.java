@@ -18,7 +18,7 @@ public class CarController
     public CarController(CarService carService) {}
 
     @GetMapping("/all")
-    public List<Car> sayHello()
+    public List<Car> getAllCars()
     {
         return carService.allCars();
     }
