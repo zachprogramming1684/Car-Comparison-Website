@@ -1,16 +1,19 @@
-package com.zachprogramming.carcomparisonwebsite.model;
+package com.zachprogramming.carcomparisonwebsite;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
 @Entity
 public class Car
 {
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO) // this will automatically generate an id for each car added to the database
     private Long id;
     private String make;
     private String model;
-    private int year;
+    private int modelYear;
     private String color;
     private double price;
     private int horsepower;
@@ -20,11 +23,10 @@ public class Car
 
     }
 
-    public Car(Long id, String make, String model, int year, String color, double price, int horsepower) {
-        this.id = id;
+    public Car(String make, String model, int modelYear, String color, double price, int horsepower) {
         this.make = make;
         this.model = model;
-        this.year = year;
+        this.modelYear = modelYear;
         this.color = color;
         this.price = price;
         this.horsepower = horsepower;
@@ -47,11 +49,11 @@ public class Car
     }
 
     public int getYear() {
-        return year;
+        return modelYear;
     }
 
-    public void setYear(int year) {
-        this.year = year;
+    public void setYear(int modelYear) {
+        this.modelYear = modelYear;
     }
 
     public String getColor() {

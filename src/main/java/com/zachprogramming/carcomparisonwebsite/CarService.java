@@ -1,11 +1,8 @@
-package com.zachprogramming.carcomparisonwebsite.service;
+package com.zachprogramming.carcomparisonwebsite;
 
-import com.zachprogramming.carcomparisonwebsite.model.Car;
-import com.zachprogramming.carcomparisonwebsite.repository.CarRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Service

@@ -1,7 +1,5 @@
-package com.zachprogramming.carcomparisonwebsite.controller;
+package com.zachprogramming.carcomparisonwebsite;
 
-import com.zachprogramming.carcomparisonwebsite.model.Car;
-import com.zachprogramming.carcomparisonwebsite.service.CarService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -29,6 +27,7 @@ public class CarController
         return carService.getCarById(id);
     }
 
+    @GetMapping("/compare")
     public List<Car> compareCars(@RequestParam Long id1, @RequestParam Long id2)
     {
         Car car1 = carService.getCarById(id1);
