@@ -1,5 +1,10 @@
 1. Find data set to use and use CommandLineRunner to import the data on startup
 2. confirm that backend is fully implemented and works
+
+FEATURES:
+- Users can search for car by name and use advanced queries to select up to 5 cars for comparison.
+- Users can also use full screen comparison for each car
+
 3. learn frontend languages and make frontend to interact with backend
     - right now I want this to be a single page with two tables each representing a car
     - the user can use a dropdown or something to pick each car they want to compare
