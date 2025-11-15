@@ -1,6 +1,5 @@
-1. confirm that backend is fully implemented and works
-2. implement web scraper and have it funnel information to the backend database
-    - this maybe needs to run like once a month or something
+1. Find data set to use and use CommandLineRunner to import the data on startup
+2. confirm that backend is fully implemented and works
 3. learn frontend languages and make frontend to interact with backend
     - right now I want this to be a single page with two tables each representing a car
     - the user can use a dropdown or something to pick each car they want to compare
