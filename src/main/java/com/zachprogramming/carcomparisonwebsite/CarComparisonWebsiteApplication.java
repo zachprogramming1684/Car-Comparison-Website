@@ -26,6 +26,8 @@ public class CarComparisonWebsiteApplication {
             carRepository.save(new Car("Ford", "Fusion", 2016, "White", 17000, 230));
             carRepository.save(new Car("Ford", "Mustang", 2025, "Black", 45000, 460));
             carRepository.save(new Car("Toyota", "Supra", 1996, "Blue", 20000, 1000));
+
+            carRepository.save(new Car("Tester", "testing", 2005, "blue", 25000, 333));
         };
     }
 }
