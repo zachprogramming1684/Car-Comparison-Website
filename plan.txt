@@ -28,3 +28,6 @@ Cases for summary:
     - carA has better price than carB
     - carB has better price than carA
     - both prices are equal
+
+Custom Value Score Logic:
+- Users can request a single car by id to

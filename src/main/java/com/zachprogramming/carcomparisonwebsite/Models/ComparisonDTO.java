@@ -1,4 +1,4 @@
-package com.zachprogramming.carcomparisonwebsite;
+package com.zachprogramming.carcomparisonwebsite.Models;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,7 +14,8 @@ public class ComparisonDTO
     {
         this.names = new ArrayList<>();
         this.differences = new ArrayList<>();
-        this.priceSummary = "";
+        this.priceSummary = null;
+        this.horsepowerSummary = null;
     }
 
     public List<String> getNames() {

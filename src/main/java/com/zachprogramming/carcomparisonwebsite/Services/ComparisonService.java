@@ -1,34 +1,19 @@
-package com.zachprogramming.carcomparisonwebsite;
+package com.zachprogramming.carcomparisonwebsite.Services;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import com.zachprogramming.carcomparisonwebsite.Models.Car;
+import com.zachprogramming.carcomparisonwebsite.Models.ComparisonDTO;
+import com.zachprogramming.carcomparisonwebsite.Models.DifferenceDTO;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
-
 @Service
-public class CarService
+public class ComparisonService
 {
-    @Autowired
-    private CarRepository carRepository;
-    public CarService(CarRepository carRepository) {}
-
-
-    public List<Car> allCars()
-    {
-        return carRepository.findAll();
-    }
-
-    public Car getCarById(Long id)
-    {
-        return carRepository.findById(id).orElseThrow(); //TODO: figure out how this works
-    }
-
     public ComparisonDTO compareCars(Car car1, Car car2)
     {
         ComparisonDTO compare = new ComparisonDTO();
 
-        compare.addName(car1.getFullName());
-        compare.addName(car2.getFullName());
+        compare.addName(car1.getFullName() + " ID: " + car1.getId());
+        compare.addName(car2.getFullName() + " ID: " + car2.getId());
 
         Long priceWinner = null;
         if(car1.getPrice() < car2.getPrice()) {priceWinner = car1.getId();}
@@ -36,8 +21,8 @@ public class CarService
         compare.addDifference(new DifferenceDTO("Price", car1.getPrice(), car2.getPrice(), priceWinner));
 
         Long horsepowerWinner = null;
-        if(car1.getHorsepower() < car2.getHorsepower()) {horsepowerWinner = car1.getId();}
-        else if(car2.getHorsepower() < car1.getHorsepower()) {horsepowerWinner = car2.getId();}
+        if(car1.getHorsepower() > car2.getHorsepower()) {horsepowerWinner = car1.getId();}
+        else if(car2.getHorsepower() > car1.getHorsepower()) {horsepowerWinner = car2.getId();}
         compare.addDifference(new DifferenceDTO("Horsepower", car1.getHorsepower(), car2.getHorsepower(), horsepowerWinner));
 
         compare.setPriceSummary(generatePriceSummary(car1, car2, priceWinner));
