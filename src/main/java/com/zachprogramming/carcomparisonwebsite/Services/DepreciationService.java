@@ -4,7 +4,7 @@ import org.springframework.stereotype.Service;
 
 //TODO: WORK IN PROGRESS
 @Service
-public class ScoreAnalysisService
+public class DepreciationService
 {
 
 }

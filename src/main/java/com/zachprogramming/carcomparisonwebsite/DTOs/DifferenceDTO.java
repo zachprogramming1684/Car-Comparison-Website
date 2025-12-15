@@ -1,4 +1,4 @@
-package com.zachprogramming.carcomparisonwebsite.Models;
+package com.zachprogramming.carcomparisonwebsite.DTOs;
 
 public class DifferenceDTO
 {

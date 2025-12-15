@@ -1,10 +1,8 @@
 package com.zachprogramming.carcomparisonwebsite.Services;
 
+import com.zachprogramming.carcomparisonwebsite.Exceptions.CarNotFoundException;
 import com.zachprogramming.carcomparisonwebsite.Repositories.CarRepository;
 import com.zachprogramming.carcomparisonwebsite.Models.Car;
-import com.zachprogramming.carcomparisonwebsite.Models.ComparisonDTO;
-import com.zachprogramming.carcomparisonwebsite.Models.DifferenceDTO;
-import com.zachprogramming.carcomparisonwebsite.Models.ValueScoreDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -24,7 +22,7 @@ public class CarService
 
     public Car getCarById(Long id)
     {
-        return carRepository.findById(id).orElseThrow();
+        return carRepository.findById(id).orElseThrow(() -> new CarNotFoundException("Car with ID " + id + " not found."));
     }
 
 }

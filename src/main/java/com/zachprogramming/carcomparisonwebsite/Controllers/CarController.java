@@ -1,12 +1,11 @@
 package com.zachprogramming.carcomparisonwebsite.Controllers;
 
-import com.zachprogramming.carcomparisonwebsite.Models.ValueScoreDTO;
+import com.zachprogramming.carcomparisonwebsite.DTOs.ValueScoreDTO;
 import com.zachprogramming.carcomparisonwebsite.Services.CarService;
 import com.zachprogramming.carcomparisonwebsite.Models.Car;
-import com.zachprogramming.carcomparisonwebsite.Models.ComparisonDTO;
+import com.zachprogramming.carcomparisonwebsite.DTOs.ComparisonDTO;
 import com.zachprogramming.carcomparisonwebsite.Services.ComparisonService;
 import com.zachprogramming.carcomparisonwebsite.Services.ValueScoreService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -45,8 +44,8 @@ public class CarController
         return ResponseEntity.ok(comparison);
     }
 
-    @GetMapping("/valscore")
-    public ResponseEntity<ValueScoreDTO> getValueScore(@RequestParam Long id)
+    @GetMapping("/{id}/valuescore")
+    public ResponseEntity<ValueScoreDTO> getValueScore(@PathVariable Long id)
     {
         Car car = carService.getCarById(id);
         ValueScoreDTO valueScore = valueScoreService.generateValueScore(car);

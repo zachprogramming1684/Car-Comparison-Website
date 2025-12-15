@@ -1,7 +1,7 @@
 package com.zachprogramming.carcomparisonwebsite.Services;
 
 import com.zachprogramming.carcomparisonwebsite.Models.Car;
-import com.zachprogramming.carcomparisonwebsite.Models.ValueScoreDTO;
+import com.zachprogramming.carcomparisonwebsite.DTOs.ValueScoreDTO;
 import org.springframework.stereotype.Service;
 
 import java.time.Year;

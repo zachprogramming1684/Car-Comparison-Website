@@ -1,8 +1,8 @@
 package com.zachprogramming.carcomparisonwebsite.Services;
 
 import com.zachprogramming.carcomparisonwebsite.Models.Car;
-import com.zachprogramming.carcomparisonwebsite.Models.ComparisonDTO;
-import com.zachprogramming.carcomparisonwebsite.Models.DifferenceDTO;
+import com.zachprogramming.carcomparisonwebsite.DTOs.ComparisonDTO;
+import com.zachprogramming.carcomparisonwebsite.DTOs.DifferenceDTO;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -26,6 +26,7 @@ public class ComparisonService
         compare.addDifference(new DifferenceDTO("Horsepower", car1.getHorsepower(), car2.getHorsepower(), horsepowerWinner));
 
         compare.setPriceSummary(generatePriceSummary(car1, car2, priceWinner));
+        compare.setHorsepowerSummary(generateHorsepowerSummary(car1, car2, horsepowerWinner));
 
         return compare;
     }
@@ -43,5 +44,20 @@ public class ComparisonService
             return "There is a $" + diff + " savings in going with the " + car2.getFullName() + " over the " + car1.getFullName() + ".";
         }
         return "These cars have equal prices.";
+    }
+
+    public String generateHorsepowerSummary(Car car1, Car car2, Long paramId)
+    {
+        if(car1.getId().equals(paramId))
+        {
+            int diff = car1.getHorsepower() - car2.getHorsepower();
+            return "The " + car1.getFullName() + " is more powerful than the " + car2.getFullName() + " by " + diff + " horsepower.";
+        }
+        else if(car2.getId().equals(paramId))
+        {
+            int diff = car2.getHorsepower() - car1.getHorsepower();
+            return "The " + car2.getFullName() + " is more powerful than the " + car1.getFullName() + " by " + diff + " horsepower.";
+        }
+        return "These cars have equal horsepower.";
     }
 }

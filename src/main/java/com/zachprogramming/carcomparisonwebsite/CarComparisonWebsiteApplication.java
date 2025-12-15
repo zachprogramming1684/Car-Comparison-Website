@@ -10,9 +10,7 @@ import org.springframework.context.annotation.Bean;
 @SpringBootApplication
 public class CarComparisonWebsiteApplication {
 
-    public static void main(String[] args) {
-        SpringApplication.run(CarComparisonWebsiteApplication.class, args);
-    }
+    public static void main(String[] args) {SpringApplication.run(CarComparisonWebsiteApplication.class, args);}
 
 
     // this class lets me add dummy data to the database for testing
