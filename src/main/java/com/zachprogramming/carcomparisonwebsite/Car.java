@@ -87,4 +87,9 @@ public class Car
     public Long getId() {
         return id;
     }
+
+    public String getFullName()
+    {
+        return modelYear + " " + make + " " + model;
+    }
 }

@@ -10,3 +10,21 @@ FEATURES:
     - the user can use a dropdown or something to pick each car they want to compare
         - then each car is pulled from the database and each table is populated
 4. deploy to the cloud
+
+
+COMPARISONDTO
+- ComparisonDTO class to display two cars side by side
+    - list of car names
+    - list of DifferenceDTO
+    - string summary
+- DifferenceDTO class
+    - String feature
+    - double car1Value
+    - double car2Value
+    - Long winnerId
+
+Cases for summary:
+ Price
+    - carA has better price than carB
+    - carB has better price than carA
+    - both prices are equal
