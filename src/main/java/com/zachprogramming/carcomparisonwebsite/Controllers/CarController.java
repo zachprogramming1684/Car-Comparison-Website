@@ -1,10 +1,12 @@
 package com.zachprogramming.carcomparisonwebsite.Controllers;
 
+import com.zachprogramming.carcomparisonwebsite.DTOs.DepreciationDTO;
 import com.zachprogramming.carcomparisonwebsite.DTOs.ValueScoreDTO;
 import com.zachprogramming.carcomparisonwebsite.Services.CarService;
 import com.zachprogramming.carcomparisonwebsite.Models.Car;
 import com.zachprogramming.carcomparisonwebsite.DTOs.ComparisonDTO;
 import com.zachprogramming.carcomparisonwebsite.Services.ComparisonService;
+import com.zachprogramming.carcomparisonwebsite.Services.DepreciationService;
 import com.zachprogramming.carcomparisonwebsite.Services.ValueScoreService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -19,12 +21,14 @@ public class CarController
     private final CarService carService;
     private final ComparisonService comparisonService;
     private final ValueScoreService valueScoreService;
+    private final DepreciationService depreciationService;
 
-    public CarController(CarService carService,  ComparisonService comparisonService, ValueScoreService valueScoreService)
+    public CarController(CarService carService,  ComparisonService comparisonService, ValueScoreService valueScoreService, DepreciationService depreciationService)
     {
         this.carService = carService;
         this.comparisonService = comparisonService;
         this.valueScoreService = valueScoreService;
+        this.depreciationService = depreciationService;
     }
 
     @GetMapping("/all")
@@ -51,5 +55,13 @@ public class CarController
         ValueScoreDTO valueScore = valueScoreService.generateValueScore(car);
 
         return ResponseEntity.ok(valueScore);
+    }
+
+    @GetMapping("/{id}/depreciation")
+    public ResponseEntity<DepreciationDTO> getDepreciation(@PathVariable Long id)
+    {
+        Car car = carService.getCarById(id);
+        DepreciationDTO depreciation = depreciationService.calculateDepreciation(car, 5);
+        return ResponseEntity.ok(depreciation);
     }
 }

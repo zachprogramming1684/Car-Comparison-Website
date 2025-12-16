@@ -1,27 +1,27 @@
 package com.zachprogramming.carcomparisonwebsite.DTOs;
 
+import java.util.ArrayList;
 import java.util.List;
 
-//TODO: WORK IN PROGRESS
 public class DepreciationDTO
 {
     // depreciation over 5 years
-    private String  id;
+    private Long  id;
     private String modelName;
-    private List<Double> yearlyDepreciation;
+    private List<YearlyDepreciation> yearlyDepreciation;
 
     public DepreciationDTO()
     {
         this.id = null;
         this.modelName = null;
-        this.yearlyDepreciation = null;
+        this.yearlyDepreciation = new ArrayList<>();
     }
 
-    public String getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -33,11 +33,16 @@ public class DepreciationDTO
         this.modelName = modelName;
     }
 
-    public List<Double> getYearlyDepreciation() {
+    public List<YearlyDepreciation> getYearlyDepreciation() {
         return yearlyDepreciation;
     }
 
-    public void setYearlyDepreciation(List<Double> yearlyDepreciation) {
+    public void setYearlyDepreciation(List<YearlyDepreciation> yearlyDepreciation) {
         this.yearlyDepreciation = yearlyDepreciation;
+    }
+
+    public void addYearlyDepreciation(YearlyDepreciation yearlyDepreciation)
+    {
+        this.yearlyDepreciation.add(yearlyDepreciation);
     }
 }
