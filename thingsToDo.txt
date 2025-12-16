@@ -1,7 +1,6 @@
 1. Confirm all desired business logic is implemented and works as intended
     - write tests for all this stuff
     - confirm all errors are handled
-2. Figure out complex filtering for cars
 3. Add security
 4. Connect to PostgreSQL databse with Docker
 5. Create a bunch of data to use in the real site, probably create a spreadsheet, figure out how to implant it into program

@@ -52,7 +52,7 @@ public class CarController
         return ResponseEntity.ok(updatedCar);
     }
 
-    @DeleteMapping
+    @DeleteMapping("/{id}")
     public ResponseEntity<Void>  deleteCar(@PathVariable Long id)
     {
         carService.deleteCar(id);
