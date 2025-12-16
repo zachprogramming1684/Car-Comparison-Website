@@ -9,7 +9,6 @@ import java.time.Year;
 @Service
 public class ValueScoreService
 {
-    private final ScoreAnalysisService analysis;
 
     private static final double MAX_PRICE_REF = 60000;
     private static final int MAX_AGE_REF = 20;
@@ -18,11 +17,6 @@ public class ValueScoreService
     private static final double WEIGHT_PRICE = 0.55;
     private static final double WEIGHT_AGE = 0.35;
     private static final double WEIGHT_HORSEPOWER = 0.10;
-
-    public ValueScoreService(ScoreAnalysisService analysis)
-    {
-        this.analysis = analysis;
-    }
 
     public ValueScoreDTO generateValueScore(Car car1)
     {

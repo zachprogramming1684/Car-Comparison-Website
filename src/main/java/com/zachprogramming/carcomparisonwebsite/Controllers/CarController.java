@@ -8,6 +8,7 @@ import com.zachprogramming.carcomparisonwebsite.DTOs.ComparisonDTO;
 import com.zachprogramming.carcomparisonwebsite.Services.ComparisonService;
 import com.zachprogramming.carcomparisonwebsite.Services.DepreciationService;
 import com.zachprogramming.carcomparisonwebsite.Services.ValueScoreService;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -36,6 +37,27 @@ public class CarController
 
     @GetMapping("/{id}")
     public ResponseEntity<Car> getCarById(@PathVariable Long id) {return ResponseEntity.ok(carService.getCarById(id));}
+
+    @PostMapping
+    public ResponseEntity<Car> addCar(@RequestBody Car car)
+    {
+        Car newCar = carService.addCar(car);
+        return new ResponseEntity<>(newCar, HttpStatus.CREATED);
+    }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<Car> updateCar(@PathVariable Long id, @RequestBody Car car)
+    {
+        Car updatedCar = carService.updateCar(id, car);
+        return ResponseEntity.ok(updatedCar);
+    }
+
+    @DeleteMapping
+    public ResponseEntity<Void>  deleteCar(@PathVariable Long id)
+    {
+        carService.deleteCar(id);
+        return ResponseEntity.noContent().build();
+    }
 
     @GetMapping("/compare")
     public ResponseEntity<ComparisonDTO> compareCars(@RequestParam Long id1, @RequestParam Long id2)
