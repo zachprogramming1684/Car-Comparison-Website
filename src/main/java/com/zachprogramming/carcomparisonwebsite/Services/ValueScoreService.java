@@ -13,10 +13,12 @@ public class ValueScoreService
     private static final double MAX_PRICE_REF = 60000;
     private static final int MAX_AGE_REF = 20;
     private static final int MIN_HORSEPOWER_REF = 60;
+    private static final int MAX_MPG_REF = 60;
 
-    private static final double WEIGHT_PRICE = 0.55;
-    private static final double WEIGHT_AGE = 0.35;
+    private static final double WEIGHT_PRICE = 0.40;
+    private static final double WEIGHT_AGE = 0.30;
     private static final double WEIGHT_HORSEPOWER = 0.10;
+    private static final double WEIGHT_MPG = 0.20;
 
     public ValueScoreDTO generateValueScore(Car car1)
     {
@@ -28,14 +30,17 @@ public class ValueScoreService
         int year = car1.getYear();
         double price = car1.getPrice();
         int horsepower = car1.getHorsepower();
+        int mpg = car1.getFuelEconomy();
 
         double priceScore = getPriceScore(price);
         double ageScore = getAgeScore(year);
         double horsepowerScore = getHorsepowerScore(horsepower);
+        double mpgScore = getMpgScore(mpg);
 
         valueScore = (priceScore * WEIGHT_PRICE)
                     + (ageScore * WEIGHT_AGE)
-                    + (horsepowerScore * WEIGHT_HORSEPOWER);
+                    + (horsepowerScore * WEIGHT_HORSEPOWER)
+                    + (mpgScore * WEIGHT_MPG);
         int totalScore = (int) Math.round(valueScore * 100);
 
         valueScoreDTO.setValueScore(totalScore);
@@ -59,6 +64,8 @@ public class ValueScoreService
     {
         return clamp(1 - ((double) MIN_HORSEPOWER_REF / horsepower));
     }
+
+    private double getMpgScore(int mpg) {return clamp((double) mpg / MAX_MPG_REF);}
 
     private double clamp(double value)
     {

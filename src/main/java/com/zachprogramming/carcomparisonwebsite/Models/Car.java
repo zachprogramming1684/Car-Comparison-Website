@@ -17,19 +17,23 @@ public class Car
     private String color;
     private double price;
     private int horsepower;
+    private int fuelEconomy;
+    private String trim;
 
     public Car()
     {
 
     }
 
-    public Car(String make, String model, int modelYear, String color, double price, int horsepower) {
+    public Car(String make, String model, int modelYear, String color, double price, int horsepower, int fuelEconomy, String trim) {
         this.make = make;
         this.model = model;
         this.modelYear = modelYear;
         this.color = color;
         this.price = price;
         this.horsepower = horsepower;
+        this.fuelEconomy = fuelEconomy;
+        this.trim = trim;
     }
 
     public String getMake() {
@@ -88,8 +92,26 @@ public class Car
         return id;
     }
 
+    public String getTrim() {
+        return trim;
+    }
+
+    public void setTrim(String trim) {
+        this.trim = trim;
+    }
+
+    public int getFuelEconomy() {
+        return fuelEconomy;
+    }
+
+    public void setFuelEconomy(int fuelEconomy) {
+        this.fuelEconomy = fuelEconomy;
+    }
+
     public String getFullName()
     {
-        return modelYear + " " + make + " " + model;
+        return modelYear + " " + make + " " + model + " " + trim;
     }
+
+
 }

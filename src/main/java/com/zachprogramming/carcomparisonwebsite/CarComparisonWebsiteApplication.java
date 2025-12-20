@@ -19,13 +19,13 @@ public class CarComparisonWebsiteApplication {
     {
         return args ->
         {
-            carRepository.save(new Car("Honda", "Civic", 2020, "White", 20000, 158));
-            carRepository.save(new Car("Nissan", "Rogue", 2013, "Black", 1500, 170));
-            carRepository.save(new Car("Ford", "Fusion", 2016, "White", 17000, 230));
-            carRepository.save(new Car("Ford", "Mustang", 2025, "Black", 45000, 460));
-            carRepository.save(new Car("Toyota", "Supra", 1996, "Blue", 20000, 1000));
-
-            carRepository.save(new Car("Tester", "testing", 2005, "blue", 25000, 333));
+            carRepository.save(new Car("Honda", "Civic", 2020, "White", 20000, 158, 34, "LX"));
+            carRepository.save(new Car("Nissan", "Rogue", 2013, "Black", 1500, 170, 25, "S"));
+            carRepository.save(new Car("Ford", "Fusion", 2016, "White", 17000, 230, 25, "Titanium"));
+            carRepository.save(new Car("Ford", "Mustang", 2025, "Black", 45000, 460, 18, "Premium"));
+            carRepository.save(new Car("Toyota", "Supra", 1996, "Blue", 20000, 1000, 15, "Sport"));
+            carRepository.save(new Car("Ford", "F-150", 2025, "White", 40000, 400, 18, "super"));
+            carRepository.save(new Car("Toyota", "Prius", 2020, "Red", 25000, 120, 52, "Base"));
         };
     }
 }

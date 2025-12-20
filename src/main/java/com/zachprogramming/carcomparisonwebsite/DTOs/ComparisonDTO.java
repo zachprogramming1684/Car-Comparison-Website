@@ -9,6 +9,7 @@ public class ComparisonDTO
     private List<DifferenceDTO> differences;
     private String priceSummary;
     private String horsepowerSummary;
+    private String fuelEconomySummary;
 
     public ComparisonDTO()
     {
@@ -58,5 +59,13 @@ public class ComparisonDTO
 
     public void setHorsepowerSummary(String horsepowerSummary) {
         this.horsepowerSummary = horsepowerSummary;
+    }
+
+    public String getFuelEconomySummary() {
+        return fuelEconomySummary;
+    }
+
+    public void setFuelEconomySummary(String fuelEconomySummary) {
+        this.fuelEconomySummary = fuelEconomySummary;
     }
 }
