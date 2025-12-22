@@ -40,6 +40,8 @@ public class CarService
         existingCar.setPrice(carDetails.getPrice());
         existingCar.setColor(carDetails.getColor());
         existingCar.setHorsepower(carDetails.getHorsepower());
+        existingCar.setFuelEconomy(carDetails.getFuelEconomy());
+        existingCar.setTrim(carDetails.getTrim());
 
         return carRepository.save(existingCar);
     }
