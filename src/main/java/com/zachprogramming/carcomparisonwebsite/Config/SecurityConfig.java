@@ -6,9 +6,14 @@ import org.springframework.http.HttpMethod;
 import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.core.userdetails.User;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 import org.springframework.security.web.SecurityFilterChain;
 
-//TODO: ADD USERS, FIGURE OUT HOW THIS CLASS WORKS
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig
@@ -29,7 +34,26 @@ public class SecurityConfig
         return http.build();
     }
 
-    //TODO: ADD USERS, FIGURE OUT HOW THIS CLASS WORKS
+    @Bean
+    public UserDetailsService userDetailsService()
+    {
+        UserDetails admin = User.builder()
+                .username("admin")
+                .password(passwordEncoder().encode("super_cool_password"))
+                .roles("ADMIN")
+                .build();
+        UserDetails guest = User.builder()
+                .username("guest")
+                .password(passwordEncoder().encode("guest123"))
+                .roles("USER")
+                .build();
+        return new InMemoryUserDetailsManager(admin, guest);
+    }
+
+    @Bean
+    public PasswordEncoder passwordEncoder()
+    {
+        return new BCryptPasswordEncoder();
+    }
 }
 
-//TODO: ADD USERS, FIGURE OUT HOW THIS CLASS WORKS
