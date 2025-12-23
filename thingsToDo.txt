@@ -9,6 +9,18 @@
 7. Deploy to AWS free tier
 8. Add very detailed README on github
 
+Considerations before deploying:
+- Making sure passwords are private
+- Making sure API keys are private
+
+NEW PLAN
+1. Make sure all passwords and api key are private
+2. Design frontend
+3. Switch security to be configured for having a frontend
+4. Put backend and frontend into containers
+5. Deploy to cloud providor
+6. Write README and verify nothing sensitive is on GitHub
+
 Tech Stack:
 - Java (version)
 - Spring Boot 3

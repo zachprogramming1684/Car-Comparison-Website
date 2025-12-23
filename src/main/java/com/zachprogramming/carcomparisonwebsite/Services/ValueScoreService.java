@@ -9,7 +9,6 @@ import java.time.Year;
 @Service
 public class ValueScoreService
 {
-
     private static final double MAX_PRICE_REF = 60000;
     private static final int MAX_AGE_REF = 20;
     private static final int MIN_HORSEPOWER_REF = 60;
@@ -19,6 +18,9 @@ public class ValueScoreService
     private static final double WEIGHT_AGE = 0.30;
     private static final double WEIGHT_HORSEPOWER = 0.10;
     private static final double WEIGHT_MPG = 0.20;
+
+    private final AiAnalysisService aiAnalysisService;
+    public ValueScoreService(AiAnalysisService aiAnalysisService) {this.aiAnalysisService = aiAnalysisService;}
 
     public ValueScoreDTO generateValueScore(Car car1)
     {
@@ -44,6 +46,7 @@ public class ValueScoreService
         int totalScore = (int) Math.round(valueScore * 100);
 
         valueScoreDTO.setValueScore(totalScore);
+        valueScoreDTO.setAiAnalysis(aiAnalysisService.generateAiAnalysis(car1, totalScore));
         return valueScoreDTO;
     }
 
