@@ -1,5 +1,6 @@
 package com.zachprogramming.carcomparisonwebsite.Config;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
@@ -18,6 +19,9 @@ import org.springframework.security.web.SecurityFilterChain;
 @EnableWebSecurity
 public class SecurityConfig
 {
+    @Value("${security.admin.password}")
+    private String adminPassword;
+
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception
     {
@@ -39,7 +43,7 @@ public class SecurityConfig
     {
         UserDetails admin = User.builder()
                 .username("admin")
-                .password(passwordEncoder().encode("super_cool_password"))
+                .password(passwordEncoder().encode(adminPassword))
                 .roles("ADMIN")
                 .build();
         UserDetails guest = User.builder()
