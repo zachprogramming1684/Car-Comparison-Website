@@ -24,7 +24,7 @@ services:
     depends_on:
       - postgres
   backend:
-    build: .
+    build: ./backend
     container_name: car-backend
     ports:
       - "8080:8080"
