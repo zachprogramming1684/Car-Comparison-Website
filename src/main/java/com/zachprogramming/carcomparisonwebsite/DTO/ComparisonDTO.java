@@ -1,4 +1,4 @@
-package com.zachprogramming.carcomparisonwebsite.DTOs;
+package com.zachprogramming.carcomparisonwebsite.DTO;
 
 import java.util.ArrayList;
 import java.util.List;

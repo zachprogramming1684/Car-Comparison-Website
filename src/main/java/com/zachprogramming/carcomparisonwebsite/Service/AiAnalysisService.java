@@ -1,9 +1,8 @@
-package com.zachprogramming.carcomparisonwebsite.Services;
+package com.zachprogramming.carcomparisonwebsite.Service;
 
 import com.google.genai.Client;
 import com.google.genai.types.GenerateContentResponse;
-import com.zachprogramming.carcomparisonwebsite.Models.Car;
-import org.springframework.beans.factory.annotation.Value;
+import com.zachprogramming.carcomparisonwebsite.Model.Car;
 import org.springframework.stereotype.Service;
 
 @Service

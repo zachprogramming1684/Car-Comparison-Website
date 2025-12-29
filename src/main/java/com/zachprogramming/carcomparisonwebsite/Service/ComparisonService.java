@@ -1,8 +1,8 @@
-package com.zachprogramming.carcomparisonwebsite.Services;
+package com.zachprogramming.carcomparisonwebsite.Service;
 
-import com.zachprogramming.carcomparisonwebsite.Models.Car;
-import com.zachprogramming.carcomparisonwebsite.DTOs.ComparisonDTO;
-import com.zachprogramming.carcomparisonwebsite.DTOs.DifferenceDTO;
+import com.zachprogramming.carcomparisonwebsite.Model.Car;
+import com.zachprogramming.carcomparisonwebsite.DTO.ComparisonDTO;
+import com.zachprogramming.carcomparisonwebsite.DTO.DifferenceDTO;
 import org.springframework.stereotype.Service;
 
 @Service

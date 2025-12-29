@@ -1,4 +1,4 @@
-package com.zachprogramming.carcomparisonwebsite.Models;
+package com.zachprogramming.carcomparisonwebsite.Model;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;

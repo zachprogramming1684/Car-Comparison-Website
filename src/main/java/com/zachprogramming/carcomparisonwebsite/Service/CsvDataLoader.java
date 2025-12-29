@@ -1,7 +1,7 @@
-package com.zachprogramming.carcomparisonwebsite.Services;
+package com.zachprogramming.carcomparisonwebsite.Service;
 
-import com.zachprogramming.carcomparisonwebsite.Models.Car;
-import com.zachprogramming.carcomparisonwebsite.Repositories.CarRepository;
+import com.zachprogramming.carcomparisonwebsite.Model.Car;
+import com.zachprogramming.carcomparisonwebsite.Repository.CarRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 

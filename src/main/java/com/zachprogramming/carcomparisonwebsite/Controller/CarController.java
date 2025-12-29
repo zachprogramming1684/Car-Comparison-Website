@@ -1,13 +1,15 @@
-package com.zachprogramming.carcomparisonwebsite.Controllers;
+package com.zachprogramming.carcomparisonwebsite.Controller;
 
-import com.zachprogramming.carcomparisonwebsite.DTOs.DepreciationDTO;
-import com.zachprogramming.carcomparisonwebsite.DTOs.ValueScoreDTO;
-import com.zachprogramming.carcomparisonwebsite.Services.CarService;
-import com.zachprogramming.carcomparisonwebsite.Models.Car;
-import com.zachprogramming.carcomparisonwebsite.DTOs.ComparisonDTO;
-import com.zachprogramming.carcomparisonwebsite.Services.ComparisonService;
-import com.zachprogramming.carcomparisonwebsite.Services.DepreciationService;
-import com.zachprogramming.carcomparisonwebsite.Services.ValueScoreService;
+import com.zachprogramming.carcomparisonwebsite.DTO.CarSearchCriteria;
+import com.zachprogramming.carcomparisonwebsite.DTO.DepreciationDTO;
+import com.zachprogramming.carcomparisonwebsite.DTO.ValueScoreDTO;
+import com.zachprogramming.carcomparisonwebsite.Service.CarService;
+import com.zachprogramming.carcomparisonwebsite.Model.Car;
+import com.zachprogramming.carcomparisonwebsite.DTO.ComparisonDTO;
+import com.zachprogramming.carcomparisonwebsite.Service.ComparisonService;
+import com.zachprogramming.carcomparisonwebsite.Service.DepreciationService;
+import com.zachprogramming.carcomparisonwebsite.Service.ValueScoreService;
+import org.springdoc.core.annotations.ParameterObject;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -37,6 +39,10 @@ public class CarController
 
     @GetMapping("/{id}")
     public ResponseEntity<Car> getCarById(@PathVariable Long id) {return ResponseEntity.ok(carService.getCarById(id));}
+
+    @GetMapping
+    public ResponseEntity<List<Car>> searchCars(@ParameterObject @ModelAttribute CarSearchCriteria criteria)
+    {return ResponseEntity.ok(carService.searchCars(criteria));}
 
     @PostMapping
     public ResponseEntity<Car> addCar(@RequestBody Car car)
@@ -86,4 +92,6 @@ public class CarController
         DepreciationDTO depreciation = depreciationService.calculateDepreciation(car, 5);
         return ResponseEntity.ok(depreciation);
     }
+
+
 }

@@ -1,4 +1,4 @@
-package com.zachprogramming.carcomparisonwebsite.Exceptions;
+package com.zachprogramming.carcomparisonwebsite.Exception;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;

@@ -1,9 +1,11 @@
-package com.zachprogramming.carcomparisonwebsite.Services;
+package com.zachprogramming.carcomparisonwebsite.Service;
 
-import com.zachprogramming.carcomparisonwebsite.Exceptions.CarNotFoundException;
-import com.zachprogramming.carcomparisonwebsite.Repositories.CarRepository;
-import com.zachprogramming.carcomparisonwebsite.Models.Car;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.zachprogramming.carcomparisonwebsite.DTO.CarSearchCriteria;
+import com.zachprogramming.carcomparisonwebsite.Exception.CarNotFoundException;
+import com.zachprogramming.carcomparisonwebsite.Repository.CarRepository;
+import com.zachprogramming.carcomparisonwebsite.Model.Car;
+import com.zachprogramming.carcomparisonwebsite.Repository.CarSpecifications;
+import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -22,6 +24,20 @@ public class CarService
     public Car getCarById(Long id)
     {
         return carRepository.findById(id).orElseThrow(() -> new CarNotFoundException("Car with ID " + id + " not found."));
+    }
+
+    public List<Car> searchCars(CarSearchCriteria criteria)
+    {
+        Specification<Car> spec = Specification.where(null);
+
+        if(criteria.getMake() != null) {spec = spec.and(CarSpecifications.hasMake(criteria.getMake()));}
+        if(criteria.getModel() != null) {spec = spec.and(CarSpecifications.modelContains(criteria.getModel()));}
+        if(criteria.getMaxPrice() != null) {spec = spec.and(CarSpecifications.priceLessThan(criteria.getMaxPrice()));}
+        if(criteria.getColor() != null) {spec = spec.and(CarSpecifications.isColor(criteria.getColor()));}
+        if(criteria.getMinHorsepower() != null) {spec = spec.and(CarSpecifications.horsepowerGreaterThan(criteria.getMinHorsepower()));}
+        if(criteria.getMinMpg() != null) {spec = spec.and(CarSpecifications.mpgGreaterThan(criteria.getMinMpg()));}
+        if(criteria.getMinYear() != null || criteria.getMaxYear() != null) {spec = spec.and(CarSpecifications.betweenYears(criteria.getMinYear(), criteria.getMaxYear()));}
+        return carRepository.findAll(spec);
     }
 
     public Car addCar(Car car)

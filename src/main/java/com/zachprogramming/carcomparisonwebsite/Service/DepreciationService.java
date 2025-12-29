@@ -1,8 +1,8 @@
-package com.zachprogramming.carcomparisonwebsite.Services;
+package com.zachprogramming.carcomparisonwebsite.Service;
 
-import com.zachprogramming.carcomparisonwebsite.DTOs.DepreciationDTO;
-import com.zachprogramming.carcomparisonwebsite.DTOs.YearlyDepreciation;
-import com.zachprogramming.carcomparisonwebsite.Models.Car;
+import com.zachprogramming.carcomparisonwebsite.DTO.DepreciationDTO;
+import com.zachprogramming.carcomparisonwebsite.DTO.YearlyDepreciation;
+import com.zachprogramming.carcomparisonwebsite.Model.Car;
 import org.springframework.stereotype.Service;
 
 //TODO: WORK IN PROGRESS

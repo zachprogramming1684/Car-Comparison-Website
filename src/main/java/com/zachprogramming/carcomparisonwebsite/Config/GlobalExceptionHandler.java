@@ -1,7 +1,7 @@
 package com.zachprogramming.carcomparisonwebsite.Config;
 
-import com.zachprogramming.carcomparisonwebsite.DTOs.ErrorResponse;
-import com.zachprogramming.carcomparisonwebsite.Exceptions.CarNotFoundException;
+import com.zachprogramming.carcomparisonwebsite.DTO.ErrorResponse;
+import com.zachprogramming.carcomparisonwebsite.Exception.CarNotFoundException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;
