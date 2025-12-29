@@ -67,9 +67,9 @@ public class CarSpecifications
         return (root, query, criteriaBuilder) ->
         {
             if(minYear == null && maxYear == null) return null;
-            if(minYear != null && maxYear != null) {return criteriaBuilder.between(root.get("year"), minYear, maxYear);}
-            if(minYear != null) {return criteriaBuilder.greaterThanOrEqualTo(root.get("year"), minYear);}
-            return criteriaBuilder.lessThanOrEqualTo(root.get("year"), maxYear);
+            if(minYear != null && maxYear != null) {return criteriaBuilder.between(root.get("modelYear"), minYear, maxYear);}
+            if(minYear != null) {return criteriaBuilder.greaterThanOrEqualTo(root.get("modelYear"), minYear);}
+            return criteriaBuilder.lessThanOrEqualTo(root.get("modelYear"), maxYear);
         };
     }
 }
