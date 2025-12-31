@@ -5,7 +5,6 @@ import com.zachprogramming.carcomparisonwebsite.DTO.YearlyDepreciation;
 import com.zachprogramming.carcomparisonwebsite.Model.Car;
 import org.springframework.stereotype.Service;
 
-//TODO: WORK IN PROGRESS
 @Service
 public class DepreciationService
 {
