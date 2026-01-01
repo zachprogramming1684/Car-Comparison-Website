@@ -42,7 +42,7 @@ class CarServiceTest
     {
         Car car = new Car();
         car.setId(1L);
-        when(carRepository.findById(1L)).thenReturn(Optional.of(car)); // todo: explain this
+        when(carRepository.findById(1L)).thenReturn(Optional.of(car));
         Car result = carService.getCarById(1L);
         assertEquals(1L, result.getId());
     }
