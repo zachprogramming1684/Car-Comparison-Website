@@ -35,4 +35,37 @@ class CarSpecificationsTest
         assertEquals(1, results.size());
         assertEquals("Honda", results.get(0).getMake());
     }
+
+    @Test
+    void shouldFilterByPriceRange()
+    {
+        Specification<Car> spec = CarSpecifications.priceLessThan(25000.0);
+        List<Car> results = carRepository.findAll(spec);
+        assertEquals(2, results.size());
+    }
+
+    @Test
+    void shouldFilterByModelFuzzySearch()
+    {
+        Specification<Car> spec = CarSpecifications.modelContains("Civ"); //
+        List<Car> results = carRepository.findAll(spec);
+        assertEquals(1, results.size());
+        assertEquals("Civic", results.get(0).getModel());
+    }
+
+    @Test
+    void shouldFilterByYearRange()
+    {
+        Specification<Car> spec = CarSpecifications.betweenYears(2019, 2022); //
+        List<Car> results = carRepository.findAll(spec);
+        assertEquals(2, results.size()); // Honda (2020) and Ford (2021)
+    }
+
+    @Test
+    void shouldHandlePartialYearInputs()
+    {
+        Specification<Car> spec = CarSpecifications.betweenYears(2019, null); //
+        List<Car> results = carRepository.findAll(spec);
+        assertEquals(2, results.size()); // 2020 and 2021 models
+    }
 }

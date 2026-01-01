@@ -1,5 +1,7 @@
 package com.zachprogramming.carcomparisonwebsite.Service;
 
+import com.zachprogramming.carcomparisonwebsite.DTO.CarSearchCriteria;
+import com.zachprogramming.carcomparisonwebsite.Exception.CarNotFoundException;
 import com.zachprogramming.carcomparisonwebsite.Model.Car;
 import com.zachprogramming.carcomparisonwebsite.Repository.CarRepository;
 import org.junit.jupiter.api.Assertions;
@@ -9,6 +11,15 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
+import org.springframework.data.jpa.domain.Specification;
+
+import java.util.List;
+import java.util.Optional;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
 class CarServiceTest
@@ -17,6 +28,31 @@ class CarServiceTest
     CarRepository carRepository;
     @InjectMocks
     CarService carService;
+
+    @Test
+    void shouldReturnAllCars()
+    {
+        when(carRepository.findAll()).thenReturn(List.of(new Car(), new Car()));
+        List<Car> result = carService.allCars();
+        assertEquals(2, result.size());
+    }
+
+    @Test
+    void shouldGetCarById_WhenExists()
+    {
+        Car car = new Car();
+        car.setId(1L);
+        when(carRepository.findById(1L)).thenReturn(Optional.of(car)); // todo: explain this
+        Car result = carService.getCarById(1L);
+        assertEquals(1L, result.getId());
+    }
+
+    @Test
+    void shouldThrowException_WhenCarNotFound()
+    {
+        when(carRepository.findById(99L)).thenReturn(Optional.empty());
+        assertThrows(CarNotFoundException.class, () -> carService.getCarById(99L));
+    }
 
     @Test
     void addCarShouldAddCarSuccessfully()
@@ -33,14 +69,8 @@ class CarServiceTest
         car.setFuelEconomy(34);
         car.setTrim("LX");
 
-        // basically when something it attempted to be saved to the database, return a car object instead of null since
-        // we are not actually saving anything to the database within a test
-        Mockito.when(carRepository.save(car)).thenReturn(car);
-
+        when(carRepository.save(car)).thenReturn(car);
         Car addedCar = carService.addCar(car);
-
-        // test if product == matched product
-        Assertions.assertEquals(car.getId(), addedCar.getId());
-
+        assertEquals(car.getId(), addedCar.getId());
     }
 }
