@@ -11,7 +11,7 @@ public class CarSpecifications
         return (root, query, criteriaBuilder) ->
         {
             if(!StringUtils.hasText(make)) return null;
-            return criteriaBuilder.equal(root.get("make"), make);
+            return criteriaBuilder.equal(criteriaBuilder.lower(root.get("make")), make.toLowerCase());
         };
     }
 
@@ -40,7 +40,7 @@ public class CarSpecifications
         return (root, query, criteriaBuilder) ->
         {
             if(!StringUtils.hasText(color)) return null;
-            return criteriaBuilder.equal(root.get("color"), color);
+            return criteriaBuilder.equal(criteriaBuilder.lower(root.get("color")), color.toLowerCase());
         };
     }
 
