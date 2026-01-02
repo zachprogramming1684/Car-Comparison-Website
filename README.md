@@ -23,7 +23,7 @@ This project demonstrates a cloud-native backend architecture. Instead of a trad
 * **Cloud Native:** Fully stateless architecture suitable for serverless deployment.
 * **External Database:** Connects securely to a managed PostgreSQL instance (Neon.tech).
 * **Automated Documentation:** Integrated OpenAPI (Swagger) specification.
-* **Testing:** Thorough Unit and Integration testing with JUnit and Mockito
+* **Testing:** Unit and Integration testing with JUnit and Mockito.
 
 ## Tech Stack
 * **Framework:** Java 17, Spring Boot 3.3.5
