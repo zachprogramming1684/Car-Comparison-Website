@@ -3,20 +3,42 @@ package com.zachprogramming.carcomparisonwebsite.Service;
 import com.google.genai.Client;
 import com.google.genai.types.GenerateContentResponse;
 import com.zachprogramming.carcomparisonwebsite.Model.Car;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
+
+import javax.annotation.PostConstruct;
 
 @Service
 public class AiAnalysisService
 {
-    private final Client client;
+    @Value("${gemini.api.key}")
+    private String apiKey;
+    private Client client;
 
-    public AiAnalysisService(Client client)
+    @PostConstruct
+    public void init()
     {
-        this.client = client;
+        if(apiKey != null && !apiKey.isEmpty() && !apiKey.equals("dummy-key"))
+        {
+            try
+            {
+                this.client = Client.builder().apiKey(apiKey).build();
+            }
+            catch (Exception e)
+            {
+                System.err.println("Failed to initialize Gemini Client: " + e.getMessage());
+                this.client = null;
+            }
+        }
     }
 
     public String generateAiAnalysis(Car car, int valueScore)
     {
+        if(this.client == null)
+        {
+            return "Local Mock Mode. AI Analysis unavailable without API Key. " +
+                    "Please use the live version to test AI Analysis.";
+        }
         try {
             String content = "You are a helpful car buying assistant speaking to a potential customer. " +
                     "You should only base your response off the given value score and attributes of the car. Do not mention anything " +

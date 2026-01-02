@@ -25,7 +25,6 @@ public class CsvDataLoader implements CommandLineRunner
         {
             System.out.println("Reading CSV file...");
             loadCsvData();
-            System.out.println("Data loading complete!");
         }
         else
         {
