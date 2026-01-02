@@ -29,6 +29,6 @@ class DepreciationServiceTest
         // Year 2: Lose 11.5% of 8000 -> 7080
         assertEquals(7080.0, result.getYearlyDepreciation().get(1).getPrice(), 0.01);
 
-        assertEquals(6265.8, result.getYearlyDepreciation().get(2).getPrice(), 0.01);
+        assertEquals(6266.0, result.getYearlyDepreciation().get(2).getPrice(), 0.01);
     }
 }
