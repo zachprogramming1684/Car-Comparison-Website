@@ -14,9 +14,7 @@ public class DepreciationService
         dto.setId(car.getId());
         dto.setModelName(car.getFullName());
         double currPrice = car.getPrice();
-        // loses 20% in the first year
-        // loses 11.5% for years 2-3
-        // loses 9% each year after that
+
         for(int i = 0; i < years; i++)
         {
             if(i == 0)

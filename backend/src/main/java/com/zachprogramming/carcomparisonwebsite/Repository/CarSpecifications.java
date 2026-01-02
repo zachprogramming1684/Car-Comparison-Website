@@ -33,8 +33,6 @@ public class CarSpecifications
         };
     }
 
-    //color, between years, greater than horsepower, greater than fuel economy
-
     public static Specification<Car> isColor(String color)
     {
         return (root, query, criteriaBuilder) ->

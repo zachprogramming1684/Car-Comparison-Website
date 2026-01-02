@@ -25,8 +25,8 @@ class ValueScoreServiceTest
     private ValueScoreService valueScoreService;
 
     @Test
-    void shouldCalculateValueScore() {
-        // Create a sample car
+    void shouldCalculateValueScore()
+    {
         Car car = new Car("Test", "Car", Year.now().getValue(), "Red", 30000, 200, 30, "Trim");
         car.setId(1L);
 

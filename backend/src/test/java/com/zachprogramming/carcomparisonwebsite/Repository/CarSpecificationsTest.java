@@ -47,7 +47,7 @@ class CarSpecificationsTest
     @Test
     void shouldFilterByModelFuzzySearch()
     {
-        Specification<Car> spec = CarSpecifications.modelContains("Civ"); //
+        Specification<Car> spec = CarSpecifications.modelContains("Civ");
         List<Car> results = carRepository.findAll(spec);
         assertEquals(1, results.size());
         assertEquals("Civic", results.get(0).getModel());
@@ -56,16 +56,16 @@ class CarSpecificationsTest
     @Test
     void shouldFilterByYearRange()
     {
-        Specification<Car> spec = CarSpecifications.betweenYears(2019, 2022); //
+        Specification<Car> spec = CarSpecifications.betweenYears(2019, 2022);
         List<Car> results = carRepository.findAll(spec);
-        assertEquals(2, results.size()); // Honda (2020) and Ford (2021)
+        assertEquals(2, results.size());
     }
 
     @Test
     void shouldHandlePartialYearInputs()
     {
-        Specification<Car> spec = CarSpecifications.betweenYears(2019, null); //
+        Specification<Car> spec = CarSpecifications.betweenYears(2019, null);
         List<Car> results = carRepository.findAll(spec);
-        assertEquals(2, results.size()); // 2020 and 2021 models
+        assertEquals(2, results.size());
     }
 }
