@@ -45,6 +45,10 @@ public class ValueScoreService
                     + (mpgScore * WEIGHT_MPG);
         int totalScore = (int) Math.round(valueScore * 100);
 
+        valueScoreDTO.setPrice(price);
+        valueScoreDTO.setModelYear(year);
+        valueScoreDTO.setHorsepower(horsepower);
+        valueScoreDTO.setMpg(mpg);
         valueScoreDTO.setValueScore(totalScore);
         valueScoreDTO.setAiAnalysis(aiAnalysisService.generateAiAnalysis(car1, totalScore));
         return valueScoreDTO;

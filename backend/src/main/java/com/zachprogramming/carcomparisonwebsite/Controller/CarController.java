@@ -42,7 +42,9 @@ public class CarController
 
     @GetMapping
     public ResponseEntity<List<Car>> searchCars(@ParameterObject @ModelAttribute CarSearchCriteria criteria)
-    {return ResponseEntity.ok(carService.searchCars(criteria));}
+    {
+        return ResponseEntity.ok(carService.searchCars(criteria));
+    }
 
     @PostMapping
     public ResponseEntity<Car> addCar(@RequestBody Car car)

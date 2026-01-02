@@ -33,7 +33,7 @@ public class DepreciationService
             }
             YearlyDepreciation currYear = new YearlyDepreciation();
             currYear.setYear(i + 1);
-            currYear.setPrice(currPrice);
+            currYear.setPrice(Math.round(currPrice));
             dto.addYearlyDepreciation(currYear);
         }
         return dto;
