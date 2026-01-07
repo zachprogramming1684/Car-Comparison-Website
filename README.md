@@ -8,7 +8,7 @@
 
 A robust RESTful API for managing and comparing vehicle data, deployed as a serverless container on Google Cloud Platform.
 
-### [**View Live API Documentation (Swagger UI)**](https://backend-api-408937399638.us-east1.run.app)
+### [**View Live API Documentation (Swagger UI)**](https://car-comparison-backend-477893767706.us-east1.run.app)
 *(Note: Please allow some time for the website to load)*
 
 ---
