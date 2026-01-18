@@ -26,7 +26,7 @@ This project demonstrates a cloud-native backend architecture. Instead of a trad
 * **Testing:** Unit and Integration testing with JUnit and Mockito.
 
 ## Tech Stack
-* **Framework:** Java 17, Spring Boot 3.3.5
+* **Framework:** Java 21, Spring Boot 3.5.9
 * **Database:** PostgreSQL (Hosted on Neon.tech)
 * **Containerization:** Docker & Google Artifact Registry
 * **Deployment:** Google Cloud Run (Serverless)
