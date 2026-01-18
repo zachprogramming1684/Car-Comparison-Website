@@ -1,7 +1,7 @@
 # Car Comparison API
 
-![Java](https://img.shields.io/badge/Java-17-orange)
-![Spring Boot](https://img.shields.io/badge/Spring_Boot-3.0-green)
+![Java](https://img.shields.io/badge/Java-21-orange)
+![Spring Boot](https://img.shields.io/badge/Spring_Boot-3.5.9-green)
 ![Google Cloud Run](https://img.shields.io/badge/Google_Cloud-Run-blue)
 ![PostgreSQL](https://img.shields.io/badge/Database-Neon_Postgres-purple)
 ![Docker](https://img.shields.io/badge/Container-Docker-blue)
