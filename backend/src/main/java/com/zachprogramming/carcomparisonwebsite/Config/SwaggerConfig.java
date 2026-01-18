@@ -11,6 +11,7 @@ public class SwaggerConfig implements WebMvcConfigurer
     @Override
     public void addViewControllers(ViewControllerRegistry registry)
     {
+        // redirects the root to swagger until I make the frontend
         registry.addRedirectViewController("/", "/swagger-ui/index.html");
     }
 }
