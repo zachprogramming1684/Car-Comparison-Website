@@ -35,3 +35,4 @@ build/
 thingsToDo.txt
 plan.txt
 docker-compose.yml
+.idea
