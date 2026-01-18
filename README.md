@@ -57,7 +57,7 @@ This project demonstrates a cloud-native backend architecture. Instead of a trad
 ## How to Run Locally
 
 **Prerequisites:**
-* Java 17+ (https://www.oracle.com/java/technologies/downloads/)
+* Java 21+ (https://www.oracle.com/java/technologies/downloads/)
 * Maven (https://maven.apache.org/download.cgi)
 * Git (https://git-scm.com/install/)
 
