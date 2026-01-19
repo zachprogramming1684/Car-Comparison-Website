@@ -30,6 +30,7 @@ public class CarService
     {
         Specification<Car> spec = Specification.where(null);
 
+        // match criteria to car lookup only if the user has specified certain criteria
         if(criteria.getMake() != null) {spec = spec.and(CarSpecifications.hasMake(criteria.getMake()));}
         if(criteria.getModel() != null) {spec = spec.and(CarSpecifications.modelContains(criteria.getModel()));}
         if(criteria.getMaxPrice() != null) {spec = spec.and(CarSpecifications.priceLessThan(criteria.getMaxPrice()));}

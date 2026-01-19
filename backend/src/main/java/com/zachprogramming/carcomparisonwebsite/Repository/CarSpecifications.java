@@ -6,7 +6,7 @@ import org.springframework.util.StringUtils;
 
 public class CarSpecifications
 {
-    // criteriaBuilder.lower() makes it so that looking up cars is not case sensitive
+    // criteriaBuilder.lower() makes it so that looking up cars is not case-sensitive
 
     public static Specification<Car> hasMake(String make)
     {

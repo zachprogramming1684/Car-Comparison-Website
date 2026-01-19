@@ -11,13 +11,16 @@ import javax.annotation.PostConstruct;
 @Service
 public class AiAnalysisService
 {
+    // this value is passed in from application.properties
     @Value("${gemini.api.key}")
     private String apiKey;
     private Client client;
 
+    // this will run after apiKey has been injected with something
     @PostConstruct
     public void init()
     {
+        // if we have a real apiKey, initialize the client with that key
         if(apiKey != null && !apiKey.isEmpty() && !apiKey.equals("dummy-key"))
         {
             try
@@ -32,6 +35,7 @@ public class AiAnalysisService
         }
     }
 
+    // only generate a response if the client is initialized, otherwise enter local mock mode
     public String generateAiAnalysis(Car car, int valueScore)
     {
         if(this.client == null)

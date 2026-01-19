@@ -19,12 +19,14 @@ import org.springframework.security.web.SecurityFilterChain;
 @EnableWebSecurity
 public class SecurityConfig
 {
+    // admin password is stored in application.properties, defaults to "password" for local development
     @Value("${security.admin.password}")
     private String adminPassword;
 
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception
     {
+        // everyone has access to the swagger docs and GET requests, only admins can create, edit, or delete cars
         http
                 .csrf(csrf -> csrf.disable())
                 .authorizeHttpRequests(auth -> auth
@@ -33,6 +35,7 @@ public class SecurityConfig
                         .requestMatchers(HttpMethod.GET, "/api/cars/**").permitAll()
                         .requestMatchers(HttpMethod.POST, "/api/cars/**").hasRole("ADMIN")
                         .requestMatchers(HttpMethod.DELETE, "/api/cars/**").hasRole("ADMIN")
+                        .requestMatchers(HttpMethod.PUT, "/api/cars/**").hasRole("ADMIN")
                         .anyRequest().authenticated()
                 )
                 .httpBasic(Customizer.withDefaults());
