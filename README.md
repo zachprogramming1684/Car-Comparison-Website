@@ -73,7 +73,7 @@ cd car-comparison-website/backend
 
 **3. Build and run the project**  
 
-*Windows:*  
+*Windows (Command Prompt):*  
 ```
 mvnw spring-boot:run
 ```
