@@ -54,7 +54,7 @@ This project demonstrates a cloud-native backend architecture. Instead of a trad
 | `GET`| /api/cars/compare | Compare differences between two cars by ID | 
 | `GET`| /api/cars/all | Return all cars in the database | 
 
-## How to Run Locally
+## How To Run Locally
 
 **Prerequisites:**
 * Java 21+ (https://www.oracle.com/java/technologies/downloads/)
