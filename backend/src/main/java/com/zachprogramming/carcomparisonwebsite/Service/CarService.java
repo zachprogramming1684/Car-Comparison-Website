@@ -5,6 +5,9 @@ import com.zachprogramming.carcomparisonwebsite.Exception.CarNotFoundException;
 import com.zachprogramming.carcomparisonwebsite.Repository.CarRepository;
 import com.zachprogramming.carcomparisonwebsite.Model.Car;
 import com.zachprogramming.carcomparisonwebsite.Repository.CarSpecifications;
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.CachePut;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 
@@ -16,11 +19,13 @@ public class CarService
     private CarRepository carRepository;
     public CarService(CarRepository carRepository) {this.carRepository = carRepository;}
 
+    @Cacheable(value = "cars")
     public List<Car> allCars()
     {
         return carRepository.findAll();
     }
 
+    @Cacheable(value = "cars", key = "#id")
     public Car getCarById(Long id)
     {
         return carRepository.findById(id).orElseThrow(() -> new CarNotFoundException("Car with ID " + id + " not found."));
@@ -41,6 +46,7 @@ public class CarService
         return carRepository.findAll(spec);
     }
 
+    @CachePut(value = "cars", key = "#car.id")
     public Car addCar(Car car)
     {
         return carRepository.save(car);
@@ -63,6 +69,7 @@ public class CarService
         return carRepository.save(existingCar);
     }
 
+    @CacheEvict(value = "cars", key = "#id")
     public void deleteCar(Long id)
     {
         if(!carRepository.existsById(id))

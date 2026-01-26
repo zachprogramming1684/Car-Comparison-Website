@@ -5,8 +5,10 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
+import java.io.Serializable;
+
 @Entity
-public class Car
+public class Car implements Serializable
 {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO) // this will automatically generate an id for each car added to the database
