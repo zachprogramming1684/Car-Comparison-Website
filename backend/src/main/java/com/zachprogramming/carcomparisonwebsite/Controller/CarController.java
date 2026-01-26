@@ -47,14 +47,14 @@ public class CarController
     }
 
     @PostMapping
-    public ResponseEntity<Car> addCar(@ParameterObject @ModelAttribute @RequestBody Car car)
+    public ResponseEntity<Car> addCar(@RequestBody Car car)
     {
         Car newCar = carService.addCar(car);
         return new ResponseEntity<>(newCar, HttpStatus.CREATED);
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Car> updateCar(@PathVariable Long id, @ParameterObject @ModelAttribute @RequestBody Car car)
+    public ResponseEntity<Car> updateCar(@PathVariable Long id, @RequestBody Car car)
     {
         Car updatedCar = carService.updateCar(id, car);
         return ResponseEntity.ok(updatedCar);
