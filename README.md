@@ -63,7 +63,7 @@ This project demonstrates a cloud-native backend architecture. Instead of a trad
 
 **1. Clone the repo from your terminal or command prompt**
 ```
-git clone https://github.com/zachprogramming1684/Mock-Banking-App.git
+git clone https://github.com/zachprogramming1684/Car-Comparison-Website.git
 ```
 
 **2. Navigate to the cloned repository**
