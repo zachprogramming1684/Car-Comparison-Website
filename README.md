@@ -1,10 +1,10 @@
 # Car Comparison API
 
-![Java](https://img.shields.io/badge/Java-21-orange)
-![Spring Boot](https://img.shields.io/badge/Spring_Boot-3.5.9-green)
-![Google Cloud Run](https://img.shields.io/badge/Google_Cloud-Run-blue)
-![PostgreSQL](https://img.shields.io/badge/Database-Neon_Postgres-purple)
-![Docker](https://img.shields.io/badge/Container-Docker-blue)
+![Java](https://img.shields.io/badge/Java-21-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white)
+![Spring Boot](https://img.shields.io/badge/Spring%20Boot-3.5.9-6DB33F?style=for-the-badge&logo=spring&logoColor=white)
+![PostgreSQL](https://img.shields.io/badge/PostgreSQL-4169E1?style=for-the-badge&logo=postgresql&logoColor=white)
+![Docker](https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white)
+![Google Cloud Run](https://img.shields.io/badge/Google%20Cloud%20Run-4285F4?style=for-the-badge&logo=google-cloud&logoColor=white)
 
 A robust RESTful API for managing and comparing vehicle data, deployed as a serverless container on Google Cloud Platform.
 
